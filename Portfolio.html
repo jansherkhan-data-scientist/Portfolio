@@ -1,0 +1,426 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jan Sher Khan | Data Scientist Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #0f172a 0%, #1e293b 100%);
+            color: #e2e8f0;
+            line-height: 1.6;
+            padding: 2rem;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .hero {
+            text-align: center;
+            padding: 3rem 1rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .avatar {
+            width: 120px;
+            height: 120px;
+            background: linear-gradient(135deg, #3b82f6, #8b5cf6);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 1.5rem;
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: white;
+            box-shadow: 0 10px 25px -5px rgba(0,0,0,0.3);
+        }
+
+        h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            background: linear-gradient(135deg, #fff, #94a3b8);
+            -webkit-background-clip: text;
+            background-clip: text;
+            color: transparent;
+        }
+
+        .title {
+            font-size: 1.2rem;
+            color: #60a5fa;
+            margin-bottom: 0.5rem;
+        }
+
+        .tagline {
+            font-size: 1rem;
+            color: #94a3b8;
+            margin-bottom: 1.5rem;
+        }
+
+        .social-links {
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            margin-top: 1rem;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: #1e293b;
+            color: #e2e8f0;
+            padding: 0.6rem 1.2rem;
+            border-radius: 40px;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: 1px solid #334155;
+        }
+
+        .social-btn:hover {
+            background: #3b82f6;
+            border-color: #3b82f6;
+            transform: translateY(-2px);
+        }
+
+        .section {
+            background: rgba(30, 41, 59, 0.6);
+            backdrop-filter: blur(4px);
+            border-radius: 24px;
+            padding: 2rem;
+            margin: 2rem 0;
+            border: 1px solid #334155;
+        }
+
+        .section h2 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            border-left: 4px solid #3b82f6;
+            padding-left: 1rem;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 1.5rem;
+            margin-top: 1rem;
+        }
+
+        .project-card {
+            background: #0f172a;
+            border-radius: 16px;
+            padding: 1.5rem;
+            transition: transform 0.2s;
+            border: 1px solid #334155;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            border-color: #3b82f6;
+        }
+
+        .project-card h3 {
+            color: #60a5fa;
+            margin-bottom: 0.75rem;
+        }
+
+        .tech-stack {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.5rem;
+            margin: 1rem 0;
+        }
+
+        .tech {
+            background: #1e293b;
+            padding: 0.2rem 0.8rem;
+            border-radius: 20px;
+            font-size: 0.75rem;
+            color: #94a3b8;
+        }
+
+        .repo-link {
+            color: #60a5fa;
+            text-decoration: none;
+            font-size: 0.85rem;
+            display: inline-block;
+            margin-top: 0.5rem;
+        }
+
+        .repo-link:hover {
+            text-decoration: underline;
+        }
+
+        .terminal {
+            background: #0a0f1a;
+            border-radius: 16px;
+            padding: 1rem;
+            font-family: 'Fira Code', 'Courier New', monospace;
+            font-size: 0.9rem;
+            border: 1px solid #334155;
+        }
+
+        .terminal-header {
+            display: flex;
+            gap: 0.5rem;
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid #334155;
+        }
+
+        .terminal-dot {
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            background: #ef4444;
+        }
+        .terminal-dot:nth-child(2) { background: #eab308; }
+        .terminal-dot:nth-child(3) { background: #22c55e; }
+
+        .command-line {
+            color: #22c55e;
+            margin: 0.5rem 0;
+        }
+
+        .command-output {
+            color: #94a3b8;
+            margin-left: 1rem;
+            margin-bottom: 1rem;
+        }
+
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.8rem;
+        }
+
+        .skill-badge {
+            background: #3b82f6;
+            padding: 0.4rem 1rem;
+            border-radius: 40px;
+            font-size: 0.85rem;
+            font-weight: 500;
+        }
+
+        .learning-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 1rem;
+        }
+
+        .learning-table th, .learning-table td {
+            border: 1px solid #334155;
+            padding: 0.75rem;
+            text-align: left;
+        }
+
+        .learning-table th {
+            background: #0f172a;
+            color: #60a5fa;
+        }
+
+        footer {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.9rem;
+        }
+
+        @media (max-width: 768px) {
+            body { padding: 1rem; }
+            .section { padding: 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="hero">
+        <div class="avatar">JS</div>
+        <h1>Jan Sher Khan</h1>
+        <div class="title">📊 Data Analyst | 🤖 ML Fundamentals | 📈 Statistics Background</div>
+        <div class="tagline">Lecturer in Statistics | Turning data into actionable insights — one dataset at a time</div>
+        <div class="social-links">
+            <a href="https://github.com/jansherkhan-data-scientist" target="_blank" class="social-btn">🐙 GitHub (jansherkhan-data-scientist)</a>
+            <a href="https://www.linkedin.com/in/jan-sher-khan-nizamani-2212353b7/" target="_blank" class="social-btn">🔗 LinkedIn Profile</a>
+        </div>
+    </div>
+
+    <!-- Interactive Terminal (About Me) -->
+    <div class="section">
+        <h2>⧗ interactive terminal — about me</h2>
+        <div class="terminal" id="terminal">
+            <div class="terminal-header">
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+                <div class="terminal-dot"></div>
+                <span style="margin-left: 0.5rem;">bash — jansher@data_science</span>
+            </div>
+            <div id="terminal-content">
+                <div class="command-line">$ whoami</div>
+                <div class="command-output">Statistics graduate turned data professional. I bridge descriptive analytics and predictive modeling.</div>
+                <div class="command-line">$ background</div>
+                <div class="command-output">Bachelor's in Statistics → probability, hypothesis testing, statistical inference. Currently: Lecturer in Statistics.</div>
+                <div class="command-line">$ career_goal</div>
+                <div class="command-output">Data Analyst role with ML responsibilities → Long-term: Data Scientist</div>
+                <div class="command-line">$ fun_fact</div>
+                <div class="command-output">"I see every dataset as a story waiting to be told — and sometimes a prediction waiting to be made."</div>
+            </div>
+            <div style="display: flex; gap: 0.5rem; margin-top: 1rem;">
+                <input type="text" id="terminal-input" placeholder="Try: skills, projects, contact, learning..." style="flex:1; background:#0f172a; border:1px solid #334155; color:#e2e8f0; padding:0.5rem; border-radius:8px; font-family: monospace;">
+                <button onclick="runCommand()" style="background:#3b82f6; border:none; padding:0.5rem 1rem; border-radius:8px; color:white; cursor:pointer;">Run</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Technical Toolkit -->
+    <div class="section">
+        <h2>🛠️ technical toolkit</h2>
+        <div class="skills-list">
+            <span class="skill-badge">Python</span><span class="skill-badge">Pandas/NumPy</span>
+            <span class="skill-badge">Matplotlib/Seaborn</span><span class="skill-badge">Scikit-learn</span>
+            <span class="skill-badge">Google Colab</span><span class="skill-badge">Jupyter</span>
+            <span class="skill-badge">EDA & Data Wrangling</span><span class="skill-badge">Regression/Classification</span>
+            <span class="skill-badge">Statistical Inference</span><span class="skill-badge">Tree-Based Models</span>
+        </div>
+        <p style="margin-top: 1rem; color: #94a3b8;">⭐ Core competencies: Data Cleaning • EDA • Data Wrangling • Statistical Thinking • Regression Basics • Classification Fundamentals</p>
+    </div>
+
+    <!-- Featured Projects (from your GitHub) -->
+    <div class="section">
+        <h2>📂 featured projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <h3>🌳 Tree-Based Models for Life Expectancy</h3>
+                <p>Predicting life expectancy categories (Low/Medium/High) using Decision Trees and Random Forests. Hyperparameter tuning + feature importance analysis.</p>
+                <div class="tech-stack"><span class="tech">Scikit-learn</span><span class="tech">Random Forest</span><span class="tech">Hyperparameter Tuning</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/tree-based-models-life-expectancy" class="repo-link">GitHub Repository →</a>
+            </div>
+            <div class="project-card">
+                <h3>🏦 Bank Marketing Campaign Analysis</h3>
+                <p>Predict term deposit subscription using classification models. End-to-end: EDA, preprocessing, feature engineering, scaling.</p>
+                <div class="tech-stack"><span class="tech">Logistic Regression</span><span class="tech">EDA</span><span class="tech">Feature Engineering</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/Bank-Marketing-Campaign-Analysis-Term-Deposit-Subscription-Prediction" class="repo-link">GitHub Repository →</a>
+            </div>
+            <div class="project-card">
+                <h3>📞 Customer Churn Classification Comparison</h3>
+                <p>Comparing Logistic Regression, Random Forest, XGBoost for churn prediction. Focus on evaluation metrics and performance.</p>
+                <div class="tech-stack"><span class="tech">XGBoost</span><span class="tech">Random Forest</span><span class="tech">Model Evaluation</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/Customer-churn-Classification-comparison" class="repo-link">GitHub Repository →</a>
+            </div>
+            <div class="project-card">
+                <h3>🏠 Ames Housing Price Prediction</h3>
+                <p>Full-stack ML pipeline: EDA, correlation, outlier detection, log transformation, preprocessing (StandardScaler + OneHotEncoder), cross-validation.</p>
+                <div class="tech-stack"><span class="tech">Scikit-learn</span><span class="tech">Preprocessing</span><span class="tech">CV</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/ames-housing-price-prediction" class="repo-link">GitHub Repository →</a>
+            </div>
+            <div class="project-card">
+                <h3>🍷 Wine Quality Prediction (Random Forest)</h3>
+                <p>Wine cultivar classifier (3 classes) from 13 chemical properties. 100% accuracy on sklearn wine dataset.</p>
+                <div class="tech-stack"><span class="tech">Random Forest</span><span class="tech">Classification</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/ml-wine-quality-prediction" class="repo-link">GitHub Repository →</a>
+            </div>
+            <div class="project-card">
+                <h3>🛍️ Mall Customer Segmentation (K-Means)</h3>
+                <p>Unsupervised learning: K-Means clustering to segment 200 mall customers into 5 distinct groups (high-value spenders, impulse buyers, etc.).</p>
+                <div class="tech-stack"><span class="tech">K-Means</span><span class="tech">Unsupervised</span><span class="tech">Clustering</span></div>
+                <a href="https://github.com/jansherkhan-data-scientist/mall-customer-segmentation-kmeans" class="repo-link">GitHub Repository →</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Current Learning Goals (table from GitHub) -->
+    <div class="section">
+        <h2>🎯 current learning goals</h2>
+        <table class="learning-table">
+            <thead>
+                <tr><th>Focus Area</th><th>Status</th><th>Next Step</th></tr>
+            </thead>
+            <tbody>
+                <tr><td>Python for Data</td><td>✅ Completed</td><td>Advanced Pandas</td></tr>
+                <tr><td>Data Visualization</td><td>🔄 In progress</td><td>Dashboard creation</td></tr>
+                <tr><td>ML Fundamentals</td><td>🔄 In progress</td><td>Hyperparameter tuning</td></tr>
+                <tr><td>SQL</td><td>📅 Planned</td><td>Data extraction queries</td></tr>
+                <tr><td>Statistics for ML</td><td>📅 Planned</td><td>Hypothesis testing in Python</td></tr>
+            </tbody>
+        </table>
+    </div>
+
+    <!-- GitHub Contribution & Connect -->
+    <div class="section">
+        <h2>📫 let's connect</h2>
+        <p style="margin-bottom: 1rem;">🔍 I'm actively looking for <strong>Data Analyst roles or internships</strong> where I can apply analytics skills while growing into machine learning.</p>
+        <div class="social-links" style="justify-content: flex-start;">
+            <a href="https://github.com/jansherkhan-data-scientist" class="social-btn">🐙 GitHub (39 contributions in 2025-26)</a>
+            <a href="https://www.linkedin.com/in/jan-sher-khan-nizamani-2212353b7/" class="social-btn">🔗 LinkedIn Message</a>
+        </div>
+        <p style="margin-top: 1.5rem; font-style: italic; border-left: 2px solid #3b82f6; padding-left: 1rem;">"From descriptive analytics to predictive insights — one project at a time."</p>
+    </div>
+
+    <footer>
+        ✨ Data Science Portfolio — Jan Sher Khan | Lecturer in Statistics | Based on real GitHub projects & interactive terminal design
+    </footer>
+</div>
+
+<script>
+    function runCommand() {
+        const input = document.getElementById('terminal-input');
+        const cmd = input.value.trim().toLowerCase();
+        const outputDiv = document.getElementById('terminal-content');
+        
+        let response = '';
+        if (cmd === 'help') {
+            response = 'Available: skills, projects, learning, contact, clear, fun_fact';
+        } else if (cmd === 'skills') {
+            response = 'Python, Pandas, NumPy, Matplotlib, Seaborn, Scikit-learn, Google Colab, EDA, Data Wrangling, Regression, Classification, Tree-based models.';
+        } else if (cmd === 'projects') {
+            response = '6 featured: Tree-Based Life Expectancy, Bank Marketing, Customer Churn, Ames Housing, Wine Quality, Mall Segmentation. Type "projects --list" for repo links.';
+        } else if (cmd === 'projects --list') {
+            response = '1. tree-based-models-life-expectancy\n2. Bank-Marketing-Campaign\n3. Customer-churn-Classification-comparison\n4. ames-housing-price-prediction\n5. ml-wine-quality-prediction\n6. mall-customer-segmentation-kmeans';
+        } else if (cmd === 'learning') {
+            response = 'Currently: Data Visualization (in progress), ML Fundamentals (in progress). Next: Hyperparameter tuning, then SQL.';
+        } else if (cmd === 'contact') {
+            response = 'GitHub: github.com/jansherkhan-data-scientist | LinkedIn: linkedin.com/in/jan-sher-khan-nizamani-2212353b7/';
+        } else if (cmd === 'fun_fact') {
+            response = 'I see every dataset as a story waiting to be told — and sometimes a prediction waiting to be made.';
+        } else if (cmd === 'clear') {
+            document.getElementById('terminal-content').innerHTML = '';
+            input.value = '';
+            return;
+        } else if (cmd === '') {
+            response = 'Type a command. Try "help".';
+        } else {
+            response = `Unknown: ${cmd}. Try help.`;
+        }
+        
+        const newLine = document.createElement('div');
+        newLine.className = 'command-line';
+        newLine.innerText = `$ ${cmd}`;
+        const newOutput = document.createElement('div');
+        newOutput.className = 'command-output';
+        newOutput.innerText = response;
+        
+        outputDiv.appendChild(newLine);
+        outputDiv.appendChild(newOutput);
+        input.value = '';
+        const termContainer = document.querySelector('.terminal');
+        termContainer.scrollTop = termContainer.scrollHeight;
+    }
+    
+    document.getElementById('terminal-input').addEventListener('keypress', function(e) {
+        if (e.key === 'Enter') runCommand();
+    });
+</script>
+</body>
+</html>
